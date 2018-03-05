@@ -1,0 +1,17 @@
+development:
+  adapter: sqlite3
+  database: dev_database_spreetail
+  pool: 5
+  timeout: 5000
+test:
+  adapter: sqlite3
+  database: my_database_test
+  pool: 5
+  timeout: 5000
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: prod_db
+  pool: 5
+  timeout: 5000
