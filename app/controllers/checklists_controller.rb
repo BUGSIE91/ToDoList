@@ -1,7 +1,7 @@
 class ChecklistsController < ApplicationController
   
   before_action :require_user
-  before_action :check_owner, only: [:edit, :delete]
+  before_action :check_owner, only: [:edit, :destroy]
 
   def new
     @checklist = Checklist.new
@@ -54,6 +54,16 @@ class ChecklistsController < ApplicationController
       flash[:notice] = "Trying to be cheeky are we? You cannot modify a task that's not yours!"
       redirect_to '/'
     end
+  end
+
+  def switch
+    @checklist = Checklist.find(params[:format])
+    if @checklist.update_attribute(:completed, !@checklist.completed)
+      flash[:notice] = "Status change successful"
+    else
+      flash[:notice] = "Something went wrong"
+    end
+    redirect_to '/'
   end
 
 
