@@ -1,0 +1,17 @@
+<h1>Checklists#index</h1>
+<p>Find me in app/views/checklists/index.html.erb</p>
+<% if @user_checklists.present? %>
+  <% @user_checklists.each do |c| %>
+    <span> <%= c.task_name %> </span>
+    <span> <%= c.priority %> </span>
+    <span> <%= link_to "Edit", checklists_edit_path(c) %> </span>
+    <span> <%= link_to "Delete", checklists_delete_path(c) %> </span> 
+    <br/>
+  <% end %>
+  <%= link_to "Create A task", 'checklists/new' %> 
+<% else %>
+  <p> You don't have any checklists in the system. Create some at <%= link_to "Create A task", 'checklists/new' %> </p>
+<% end %>
+<% flash.each do |name, msg| %>
+  <%= content_tag :div, msg, class: "alert alert-info" %>
+<% end %>

@@ -1,0 +1,12 @@
+<h1>Checklists#edit</h1>
+<p>Find me in app/views/checklists/edit.html.erb</p>
+<div>
+<%= form_for @checklist do |f| %>
+  <%= f.label :task_name %>
+  <%= f.text_field :task_name %> <br/>
+  <%= f.label "Priority*" %>
+  <%= f.select :priority, ['High', 'Medium', 'Low']%> <br/>
+  <%= f.label :notes%>
+  <%= f.text_area :notes %> <br/>
+  <%= f.submit %>
+<%end%>

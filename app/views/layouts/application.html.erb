@@ -14,8 +14,8 @@
         <ul> <li> <%= current_user.email %> </li>
         <li> <%= link_to "Log out", 'logout', method: "delete" %> </a></li></ul>
       <% else %>
-        <ul> <li> <%= link_to "Login", 'login' %> </a></li>
-        <li><%= link_to "Sign up", 'signup'%> </a></li>
+        <ul> <li> <%= link_to "Login", 'sessions/login' %> </a></li>
+        <li><%= link_to "Sign up", 'users/new'%> </a></li>
       <% end %>
     </div> 
     <%= yield %>

@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  task_name: MyString
+  string,: MyString
+  priority: MyString
+  string,: MyString
+  notes: MyString
+  string,: MyString
+  completed: MyString
+  boolean,: MyString
+  user_id: MyString
+  int: MyString
+
+two:
+  task_name: MyString
+  string,: MyString
+  priority: MyString
+  string,: MyString
+  notes: MyString
+  string,: MyString
+  completed: MyString
+  boolean,: MyString
+  user_id: MyString
+  int: MyString
