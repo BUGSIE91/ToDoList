@@ -7,11 +7,10 @@ class SessionsController < ApplicationController
     @user = User.where(email: params[:session][:email]).first
     if @user && @user.authenticate(params[:session][:password])
       session[:user_id] = @user.id
-      redirect_to '/'
     else
-      redirect_to 'login'
       flash[:notice] = "Invalid credentials. Please try again"
     end
+    redirect_to '/'
   end
 
   def destroy

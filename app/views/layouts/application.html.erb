@@ -6,18 +6,37 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+      <a class="navbar-brand fontaroo" href="#"> ToDoList </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto white">
+        </ul>
+        <% if current_user %>
+          <%= link_to current_user.email, '/' ,class: "white nav-link"%>
+          <%= link_to "Log Out", '/logout', method: "delete", class: "white nav-link"%>
+        <% else %>
+          <%= link_to "Login", '/login', class: "white nav-link"%>
+          <%= link_to "Sign Up", 'users/new', class: "white nav-link"%>
+        <% end %>
+      </div>
+    </nav>
   </head>
 
   <body>
-    <div class="pull-right">
-  	  <% if current_user %>
-        <ul> <li> <%= current_user.email %> </li>
-        <li> <%= link_to "Log out", 'logout', method: "delete" %> </a></li></ul>
-      <% else %>
-        <ul> <li> <%= link_to "Login", 'sessions/login' %> </a></li>
-        <li><%= link_to "Sign up", 'users/new'%> </a></li>
-      <% end %>
-    </div> 
-    <%= yield %>
+    <div class="container-fluid">
+      <div class="row row-height">
+        <div class="col-sm- sidebar-sticky">
+          <% if current_user %>
+            <%= link_to "Create a Task", "checklists/new", class: "nav-link center" %>
+          <% end %>
+        </div>
+        <div class='col-lg- position-relative form-width padded-container'>
+          <%= yield %>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

@@ -1,13 +1,13 @@
-<h1>Checklists#new</h1>
-<p>Find me in app/views/checklists/new.html.erb</p>
-
-<%= flash[:notice] %>
-<%= form_for @checklist do |c| %>
-  <%= c.label "Task Name*" %>
-  <%= c.text_field :task_name %> <br/>
-  <%= c.label "Priority*" %>
-  <%= c.select :priority, ['High', 'Medium', 'Low']%> <br/>
-  <%= c.label :notes%>
-  <%= c.text_area :notes %>
-  <%= c.submit %>
-<%end%>
+<div class="form-group">
+  <%= render 'layouts/errors' %>
+  <h5 class="center header-padding">Sign Up </h5>
+  <%= form_for @checklist do |c| %>
+    <%= c.label "Task Name*" %>
+    <%= c.text_field :task_name, class: "form-control" %> <br/>
+    <%= c.label "Priority*" %>
+    <%= c.select :priority, ['High', 'Medium', 'Low'], class: "form-control"%> <br/>
+    <%= c.label :notes%>
+    <%= c.text_area :notes, class: "form-control" %> <br/>
+    <span class="submit-form"><%= c.submit %></span>
+  <%end%>
+</div>

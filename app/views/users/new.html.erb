@@ -1,19 +1,17 @@
-<div>
-  <div>
-    <div> <h1> Signup Page </h1> 
-    <%= form_for @user do |f| %>
-      <div>
-    	<%= f.label :first_name %>
-      <%= f.text_field :first_name %> <br/>
-      </div>
-      <%= f.label :last_name %>
-      <%= f.text_field :last_name %> <br/>
-      <%= f.label :email %>
-      <%= f.text_field :email %> <br/>
-      <%= f.label :password %>
-      <%= f.password_field :password %> <br/>
-      <%= f.submit %>
-    <% end %>
-    </div>
-  </div>
+<div class="form-group">
+  <%= render 'layouts/errors' %>
+  <h5 class="center header-padding">Sign Up </h5>
+  <%= form_for @user do |f| %>
+  	<%= f.label :first_name %>
+    <%= f.text_field :first_name, class: "form-control" %> <br/>
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name, class: "form-control" %> <br/>
+    <%= f.label :email %>
+    <%= f.text_field :email, class: "form-control" %> <br/>
+    <%= f.label :password %>
+    <%= f.password_field :password, class: "form-control" %> <br/>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation, class: "form-control"%> <br/>
+    <span class="submit-form"><%= f.submit , method: "post"%> </span>
+  <% end %>
 </div>
