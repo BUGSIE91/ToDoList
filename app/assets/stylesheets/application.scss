@@ -94,7 +94,6 @@ p {
 }
 
 
-
 .sidebar-sticky {
   position: -webkit-sticky;
   position: sticky;
@@ -107,7 +106,7 @@ p {
 }
 
 .padded-container{
-  margin-left: 28% !important;
+  margin-left: 26% !important;
   margin-top: 10% !important;
 }
 
@@ -127,4 +126,13 @@ p {
 
 .submit-form{
   padding-left: 40% !important;
+}
+
+.checklist-index{
+  font-weight: bold;
+}
+
+.pagination a{
+  padding-top: 5px;
+  padding-right: 5px;
 }

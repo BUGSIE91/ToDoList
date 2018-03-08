@@ -15,3 +15,9 @@
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
+// A simple function to hide the info messages after 6 seconds. Needs modification
+var fade_out = function() {
+	$(".alert.alert-info").fadeOut().empty();
+}
+
+setTimeout(fade_out, 6000);

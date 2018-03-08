@@ -14,6 +14,10 @@ Rails.application.routes.draw do
   delete 'checklists/destroy'
 
   post 'checklists/switch'
+
+  get 'checklists/hpt'
+
+  get 'checklists/cpt'
   
   resources :checklists
 

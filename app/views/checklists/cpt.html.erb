@@ -1,0 +1,39 @@
+<div class="center header-padding">
+  <h5> <%= "Welcome " + current_user.first_name  %></h5>
+</div>
+<% if @checklists.present? %>
+  <div class="container">
+  <div class="row checklist-index">
+    <div class="col-4">
+      <span class="center">Task Name</span> 
+    </div>
+    <div class="col-4"
+      <span class="center">Task Priority</span>
+    </div>
+    <div class="col-4 absolute-zero center"> Actions </div>
+  </div>
+  <%= will_paginate @checklists, page_links: false %>
+  <% @checklists.each do |c| %>
+    <div class="card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-4">
+            <span class="center"><%= c.task_name %></span> 
+          </div>
+          <div class="col-4">
+            <span class="center"><%= c.priority %></span>
+          </div>
+          <div class="col-4 center absolute-zero"> 
+            <%= link_to "Reopen Task", checklists_switch_path(c), method: :post, class: "btn btn-sm btn-warning"  %> 
+            <%= link_to "Delete", checklists_delete_path(c), class: "btn btn-sm btn-danger" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <%= will_paginate @checklists, page_links: false%> 
+</div>
+<% else %>
+  <p> You don't have any Completed tasks in the system! </p> 
+<%end%>
+<%= link_to "View All Tasks", '/', class: "btn btn-primary btn-lg btn-block"%>

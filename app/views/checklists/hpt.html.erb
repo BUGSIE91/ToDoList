@@ -1,0 +1,9 @@
+<div class="center header-padding">
+  <h5> <%= "Welcome " + current_user.first_name  %></h5>
+</div>
+<% if @checklists.present? %>
+  <%= render 'checklists/form' %>
+<% else %>
+  <p> You don't have any High priority tasks in the system! </p> 
+<%end%>
+<%= link_to "View All Tasks", '/', class: "btn btn-primary btn-lg btn-block"%>

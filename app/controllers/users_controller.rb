@@ -4,6 +4,7 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  # Invoked when user cliks on sign up, uses the user_params method to build object.
   def create
     @user = User.new(user_params)
     if @user.save
@@ -19,6 +20,7 @@ class UsersController < ApplicationController
 
   private
 
+  # Used for building a user object from user's form input
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
   end

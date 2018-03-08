@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Todolist</title>
+    <title>ToDo List</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -24,13 +24,14 @@
       </div>
     </nav>
   </head>
-
   <body>
     <div class="container-fluid">
       <div class="row row-height">
         <div class="col-sm- sidebar-sticky">
           <% if current_user %>
-            <%= link_to "Create a Task", "checklists/new", class: "nav-link center" %>
+            <%= link_to "Create a Task", "/checklists/new", class: "nav-link btn-outline-secondary center" %>
+            <%= link_to "High Priority Tasks", "/checklists/hpt", class: "nav-link btn-outline-secondary center" %>
+            <%= link_to "Completed Tasks", "/checklists/cpt", class: "nav-link btn-outline-secondary center" %>
           <% end %>
         </div>
         <div class='col-lg- position-relative form-width padded-container'>

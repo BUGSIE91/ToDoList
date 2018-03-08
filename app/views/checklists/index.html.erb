@@ -1,39 +1,10 @@
 <div class="center header-padding">
   <h5> <%= "Welcome " + current_user.first_name  %></h5>
 </div>
-<% if @user_checklists.present? %>
-  <div class="container">
-    <div class="row checklist-index">
-      <div class="col-4">
-        <span class="center">Task Name</span> 
-      </div>
-      <div class="col-4"
-        <span class="center">Task Priority</span>
-      </div>
-      <div class="col-4 absolute-zero center"> Actions </div>
-    </div>
-    <% @user_checklists.each do |c| %>
-      <div class="card">
-        <div class="card-body">
-          <div class="row">
-            <div class="col-4">
-              <span class="center"><%= c.task_name %></span> 
-            </div>
-            <div class="col-4">
-              <span class="center"><%= c.priority %></span>
-            </div>
-            <div class="col-4 absolute-zero"> 
-              <%= link_to "Edit", checklists_edit_path(c), class: "btn btn-sm btn-primary" %> 
-              <%= link_to "Mark as Complete", checklists_switch_path(c), method: :post, class: "btn btn-sm btn-success"  %> 
-              <%= link_to "Delete", checklists_delete_path(c), class: "btn btn-sm btn-danger" %>
-            </div>
-          </div>
-        </div>
-      </div>
-    <% end %> 
-  </div>
+<% if @checklists.present? %>
+  <%= render 'checklists/form' %>
 <% else %>
-  <p> You don't have any checklists in the system. Create by clikcing the button below! </p>
-  <%= link_to "Create A task", 'checklists/new', class: "btn btn-primary btn-lg btn-block"%> 
-  <%= render 'layouts/errors' %>
+  <p> You don't have any Tasks in the system. Create by clikcing the button below! </p> 
 <%end%>
+<%= link_to "Create A Task", 'checklists/new', class: "btn btn-primary btn-lg btn-block"%>
+<%= render 'layouts/errors' %>
